@@ -56,11 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mapElement && typeof L !== 'undefined') {
         const laPazCoords = [-16.5000, -68.1500];
         
-        const map = L.map('map').setView(laPazCoords, 12);
-        
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-            maxZoom: 18
+        const map = L.map('map', { scrollWheelZoom: false }).setView(laPazCoords, 12);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
         }).addTo(map);
         
         const customIcon = L.divIcon({
@@ -86,3 +87,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('Portfolio loaded successfully');
+
