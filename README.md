@@ -1,2 +1,0 @@
-# czse_
-portafolio
