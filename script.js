@@ -1,23 +1,19 @@
 // Mobile Navigation
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
-
 if (navToggle) {
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
     });
 }
-
 // Close menu on link click
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
     });
 });
-
 // Scroll to Top Button
 const scrollTopBtn = document.getElementById('scrollTop');
-
 if (scrollTopBtn) {
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
@@ -26,7 +22,6 @@ if (scrollTopBtn) {
             scrollTopBtn.classList.remove('show');
         }
     });
-
     scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
@@ -34,7 +29,6 @@ if (scrollTopBtn) {
         });
     });
 }
-
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -48,7 +42,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
 // Map Initialization
 document.addEventListener('DOMContentLoaded', function() {
     const mapElement = document.getElementById('map');
@@ -57,10 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const laPazCoords = [-16.5000, -68.1500];
         
         const map = L.map('map', { scrollWheelZoom: false }).setView(laPazCoords, 12);
-
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
-            subdomains: 'abcd',
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+            subdomains: 'abc',
             maxZoom: 19
         }).addTo(map);
         
@@ -85,5 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 });
-
 console.log('Portfolio loaded successfully');
